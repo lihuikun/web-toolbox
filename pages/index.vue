@@ -1,13 +1,13 @@
 <template>
   <div class="page-index">
-    <Logos />
-    <Examples />
+    <Home />
   </div>
 </template>
-
+<script lang="ts" setup>
+import Home from './home/index.vue';
+</script>
 <style>
 .page-index {
-  padding-top: 60px;
-  text-align: center;
+  max-height: 100vh;
 }
 </style>
