@@ -1,5 +1,8 @@
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  nitro: {
+    preset: 'vercel-edge',
+  },
   app: {
     // head
     head: {
