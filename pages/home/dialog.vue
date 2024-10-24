@@ -7,19 +7,11 @@
   <div>
     <el-dialog
     v-model="dialogVisible"
-    title="Tips"
+    title="联系客服"
     width="500"
     :before-close="handleClose"
   >
-    <span>This is a message</span>
-    <template #footer>
-      <div class="dialog-footer">
-        <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogVisible = false">
-          Confirm
-        </el-button>
-      </div>
-    </template>
+    <span><img class="w-full" src="~/assets/images/wechat.png" alt=""></span>
   </el-dialog>
   </div>
 </template>
@@ -27,18 +19,19 @@
 <script lang='ts' setup>
 import { ref, reactive, onMounted, toRefs, watchEffect } from 'vue';
 const props = defineProps({
-  value: {
+  modelValue: {
     type: Boolean,
     default: false,
   },
 })
-const emits = defineEmits(['update:dialogVisible'])
+const emits = defineEmits(['update:modelValue'])
 const dialogVisible = computed({
   get() {
-    return props.value
+    console.log("🚀 ~ get ~ props.value:", props.modelValue)
+    return props.modelValue
   },
   set(val) {
-    emits('update:dialogVisible', val)
+    emits('update:modelValue', val)
   },
 })
 const { tableData } = toRefs(

@@ -5,8 +5,8 @@
 -->
 <template>
   <div class="flex overflow-hidden pl-[20px]">
-    <div class="absolute bottom-[50px] right-[40px]">
-      <img class="w-[30px] h-[30px] cursor-pointer" src="~/assets/images/customer-service.png" alt="" @click="dialogVisible=true">
+    <div class="absolute bottom-[50px] right-[40px] z-999">
+      <img class="w-[30px] h-[30px] cursor-pointer" src="~/assets/images/customer-service.png" alt="" @click="handleCustomerService">
     </div>
     <div class="max-h-screen border rounded-1 mr-[20px] text-white">
       <div v-for="item, index in webDataList" :key="index" class="flex flex-col">
@@ -54,7 +54,10 @@ function handleClick(name: string) {
     targetElement.scrollIntoView({ behavior: 'smooth' });
   }
 }
-
+function handleCustomerService(){
+  dialogVisible.value = true
+  console.log("🚀 ~ handleCustomerService ~ dialogVisible.value:", dialogVisible.value)
+}
 </script>
 <style lang='scss' scoped>
 .desc-container {
