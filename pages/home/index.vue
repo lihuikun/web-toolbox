@@ -5,13 +5,16 @@
 -->
 <template>
   <div class="flex overflow-hidden pl-[20px]">
-    <div class="max-h-screen border rounded-1 mr-[20px]">
+    <div class="absolute bottom-[50px] right-[40px]">
+      <img class="w-[30px] h-[30px] cursor-pointer" src="~/assets/images/customer-service.png" alt="" @click="dialogVisible=true">
+    </div>
+    <div class="max-h-screen border rounded-1 mr-[20px] text-white">
       <div v-for="item, index in webDataList" :key="index" class="flex flex-col">
         <div class="p-[10px] w-[120px] cursor-pointer rounded-[4px]" :class="activeName === item.name ? 'activeName' : ''"
           @click="handleClick(item.name)">{{ item.name }}</div>
       </div>
     </div>
-    <div class="flex-1 overflow-auto max-h-screen pr-[20px]">
+    <div class="flex-1 overflow-auto max-h-screen pr-[20px] text-white scrollbar-hidden">
       <div v-for="item, index in webDataList" :key="index">
         <div class="mr-[10px] my-[10px] font-bold text-[24px]" :class="item.name">{{ item.name }}</div>
         <div class="flex flex-wrap gap-[10px]">
@@ -27,15 +30,18 @@
         </div>
       </div>
     </div>
+    <Logo class="w-[60px] mr-[60px]"></Logo>
+    <Dialog v-model="dialogVisible"></Dialog>
   </div>
 </template>
 
 <script lang='ts' setup>
-import { ref, reactive, onMounted, toRefs, watchEffect } from 'vue';
+import { ref } from 'vue';
+import Logo from '../logo/index.vue'
 import { webDataList } from './data'
-
+import Dialog from './dialog.vue'
 const activeName = ref('')
-
+const dialogVisible =ref(false)
 function openUrl(url: string) {
   window.open(url, '_blank')
 }
@@ -71,4 +77,12 @@ function handleClick(name: string) {
 
 .activeName {
   background-color: #b3d8ff;
-}</style>
+}
+.scrollbar-hidden{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+</style>
