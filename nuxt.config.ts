@@ -6,16 +6,16 @@ export default defineNuxtConfig({
   app: {
     // head
     head: {
-      title: 'Element Plus + Nuxt 3',
+      title: '前端工具库',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
-          hid: 'description',
-          name: 'description',
-          content: 'ElementPlus + Nuxt3',
+          hid: '一款前端常见的工具网站跳转网站',
+          name: '前端工具库',
+          content: '前端工具库',
         },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo.png' }],
     }
   },
 
