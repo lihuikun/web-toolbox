@@ -1,4 +1,5 @@
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+import unocssConfig from './unocss.config'
 export default defineNuxtConfig({
   nitro: {
     preset: 'vercel-edge',
@@ -46,13 +47,7 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
 
-  unocss: {
-    uno: true,
-    attributify: true,
-    icons: {
-      scale: 1.2,
-    },
-  },
+  unocss: unocssConfig,
   vite: {
     css: {
       preprocessorOptions: {
