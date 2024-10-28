@@ -2,15 +2,6 @@
 import unocssConfig from './unocss.config'
 
 export default defineNuxtConfig({
-  hooks: {
-    'app:templates': (templates:any) => {
-      templates.push({
-        src: './hooks/render.hooks.js',
-        mode: 'client',
-        write: true,
-      })
-    },
-  },
   nitro: {
     preset: 'vercel-edge',
   },
@@ -27,15 +18,15 @@ export default defineNuxtConfig({
         },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo.png' }],
-      script:[{src:'https://www.googletagmanager.com/gtag/js?id=G-SH50NF9BHX',async:true},{
-        innerHTML:`
+      script: [{ src: 'https://www.googletagmanager.com/gtag/js?id=G-SH50NF9BHX', async: true }, {
+        innerHTML: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'G-SH50NF9BHX');
         `,
-        type:'text/javascript'
+        type: 'text/javascript'
       }]
     }
   },
